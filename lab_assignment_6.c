@@ -10,11 +10,13 @@ int search(int numbers[], int low, int high, int value)
 		mid = (low + high) / 2;
 		if (numbers[mid] > value)
 		{
-			return search(numbers, low, mid - 1, value);
+			high = mid - 1;
+			return search(numbers, low, high, value);
 		}
 		else if (numbers[mid] < value)
 		{
-			return search(numbers, mid + 1, high, value);
+			low = mid + 1;
+			return search(numbers, low, high, value);
 		}
 		else
 			return mid;
